@@ -1,0 +1,27 @@
+{
+  "name": "acuminare",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavo7henrique/ACUMINARE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavo7henrique/ACUMINARE/issues"
+  },
+  "homepage": "https://github.com/gustavo7henrique/ACUMINARE#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.3"
+  }
+}

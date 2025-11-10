@@ -1,0 +1,41 @@
+<%- include('../includes/header.ejs', {titulo: 'Lista de Categorias'}) %>
+
+    <main>
+        <h2>Lista de professores</h2>
+        <a href="/categorias/novo" class="btn btn-principal">Adicionar Categorias</a>
+
+        <!--Criando form de pesquisa e ordemnação-->
+        <form action="/categorias/listar" method="GET" class="form form-consulta">
+            <input type="text" name="busca" placeholder="Buscar por Categoria ">
+            <select name="ordem">
+                <option value="nome_categoria">Ordenar por Categoria</option>
+            </select>
+            <button type="submit" class="btn btn-principal">Buscar</button>
+        </form>
+
+
+        <table class="dados-table">
+            <thead>
+                <tr>
+                    <th>Nome Categoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let categoria of dadosCategorias) { %>
+                <tr>
+                    <td><%= categoria.nome_tcategoria %></td>
+                    <td class="acoes">
+                        <a href="/categorias/editar/<%= categoria.id_categoria %>" class="btn btn-edit">Editar</a>
+                       <!--EXCLUIR TURMA-->
+                        <form action="/turmas/excluir/<%= categoria.id_categoria %>" method="POST">
+                            <button type="submit" class="btn btn-delete">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </main>
+
+<%- include('../includes/footer.ejs') %>5
