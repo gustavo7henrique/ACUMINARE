@@ -1,0 +1,89 @@
+<%- include('../includes/header.ejs', {titulo: 'Lista de Produtos' }) %>
+
+    <main>
+        <h2 class="text-3xl font-semibold bg-[#7A552F] text-[#DCCFC2] py-4 shadow text-center"
+            style="text-shadow: 2px 2px 3px #3B2A20;">Atualização de dados do Produto</h2>
+
+        <form action="/produtos/editar/<%= produto.id_produto %>" method="POST" class="form">
+            <div class="form-group">
+                <label>Nome do Produto</label>
+                <input type="text" name="nome_produto" value="<%= produto.nome_produto %>" required>
+            </div>
+            <!-- <div class="form-group">
+                <label>Imagem do Produto</label>
+                <input type="text" name="imagem" value="<%= produto.imagem %>" required>
+            </div> -->
+
+            <div class="form-group" style="display: flex; align-items: center; gap: 15px;">
+                <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                    <label for="imagem">Imagem do Produto</label>
+                    <input type="text" name="imagem" id="imagem" value="<%= produto.imagem %>" required
+                        placeholder="Cole o link da imagem">
+                </div>
+
+                <!-- Pré-visualização já carregada -->
+                <img id="preview" src="<%= produto.imagem %>" alt="Pré-visualização"
+                    style="width: 130px; height: 90px; object-fit: contain;">
+            </div>
+
+            <script>
+                const input = document.getElementById('imagem');
+                const preview = document.getElementById('preview');
+
+                // Atualiza a imagem em tempo real quando o usuário altera o link
+                input.addEventListener('input', () => {
+                    const url = input.value.trim();
+                    if (url) {
+                        preview.src = url;
+                        preview.style.display = 'block';
+                    } else {
+                        preview.src = '';
+                        preview.style.display = 'none';
+                    }
+                });
+            </script>
+
+            <div class="form-group">
+                <label>Marca do Produto</label>
+                <input type="text" name="marca_produto" value="<%= produto.marca_produto %>" required>
+            </div>
+            <div class="form-group">
+                <label>Preço do Produto</label>
+                <input type="number" name="preco_produto" value="<%= produto.preco_produto %>" required>
+            </div>
+            <div class="form-group">
+                <label>Estoque Atual</label>
+                <input type="integer" name="estoque_atual" value="<%= produto.estoque_atual %>" readonly>
+            </div>
+            <div class="form-group">
+                <label>Estoque Mínimo</label>
+                <input type="integer" name="estoque_min" value="<%= produto.estoque_min %>" required>
+            </div>
+            <div class="form-group">
+                <label>Categoria</label>
+                <select name="id_categoria" required>
+                    <option value="">Selecione uma Categoria</option>
+                    <!-- Gerando a lista de Categorias cadastrados para seleção-->
+
+                    <% for (let categoria of dadosCategorias) { %>
+                        <option value="<%= categoria.id_categoria %>" <% if
+                            (produto.id_categoria==categoria.id_categoria) { %>
+                            selected
+                            <% } %>
+
+
+                                ><%= categoria.nome_categoria %>
+                        </option>
+                        <% } %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Data de cadastro</label>
+                <input type="date" name="data_cadastro" value="<%= produto.data_cadastro %>" readonly>
+            </div>
+            <button type="submit" class="btn btn-principal">Salvar</button>
+            <a href="/produtos/listar" class="btn btn-secundario">Cancelar</a>
+        </form>
+    </main>
+
+    <%- include('../includes/footer.ejs') %>

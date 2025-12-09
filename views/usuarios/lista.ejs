@@ -1,0 +1,76 @@
+<%- include('../includes/header.ejs', {titulo: 'Lista de Usuários' }) %>
+
+    <main>
+        <h2 class="text-3xl font-semibold bg-[#7A552F] text-[#DCCFC2] py-4 shadow text-center"
+            style="text-shadow: 2px 2px 3px #3B2A20;"> Lista de Usuários</h2>
+        <div class="flex justify-center mt-10">
+            <a href="/usuarios/novo" class="btn btn-principal">Adicionar Usuário</a>
+        </div>
+
+
+        <form action="/usuarios/listar" method="GET" class="form form-consulta">
+            <input type="text" name="busca" placeholder="Buscar por Nome">
+            <select name="ordem">
+                <option value="nome_usuario">Ordenando por Nome</option>
+            </select>
+            <button type="submit" class="btn btn-principal">Buscar</button>
+        </form>
+
+        </section>
+
+        <div class="flex justify-center">
+            <table class="dados-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Endereço</th>
+
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let usuario of dadosUsuarios){ %>
+                        <tr>
+                            <td>
+                                <%= usuario.nome_usuario%>
+                            </td>
+                            <td>
+                                <%= usuario.email%>
+                            </td>
+                            <td>
+                                <%= usuario.endereco%>
+                            </td>
+
+                            <td class="acoes">
+                                <a href="/usuarios/editar/<%= usuario.id_usuario %>" class="btn btn-edit">Editar</a>
+                                <form action="/usuarios/excluir/<%= usuario.id_usuario %>" method="post">
+                                    <button type="submit" class="btn btn-delete">Excluir</button>
+
+                                </form>
+
+
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="paginacao">
+        <%if (pgAtual> 1) { %>
+            <a href="/usuarios/listar?pg=<%= pgAtual - 1%>" class="botaozinho">Anterior</a>
+            <% } %>
+
+                <span>Página <%= pgAtual %> de <%= totalPgs %> </span>
+
+                <%if (pgAtual < totalPgs) { %>
+                    <a href="/usuarios/listar?pg=<%= pgAtual + 1%>" class="botaozinho" >Próxima</a>
+                    <% } %>
+
+    </div>
+
+    </main>
+
+
+    <%- include('../includes/footer.ejs') %>

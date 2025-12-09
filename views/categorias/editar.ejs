@@ -2,14 +2,14 @@
 
     <main>
         <h2 class="text-3xl font-semibold bg-[#7A552F] text-[#DCCFC2] py-4 shadow text-center"
-    style="text-shadow: 2px 2px 3px #3B2A20;">Cadastro de nova Categoria</h2>
+    style="text-shadow: 2px 2px 3px #3B2A20;">Atualizando dados de Categoria</h2>
 
-        <form action="/categorias/novo" method="POST" class="form">
+        <form action="/categorias/editar/<%= categoria.id_categoria %>" method="POST" class="form">
             <div class="form-group">
                 <label>Nome da Categoria</label>
-                <input type="text" name="nome_categoria" required>
+                <input type="text" name="nome_categoria" value="<%= categoria.nome_categoria %>" required>
             </div>
-            <button type="submit" class="btn btn-principal">Adicionar</button>
+            <button type="submit" class="btn btn-principal">Salvar</button>
             <a href="/categorias/listar" class="btn btn-secundario">Cancelar</a>
         </form>
     </main>

@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+
+.fonte {
+    font-family: "Beau Rivage", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #FFCC00;
+    z-index: 20;
+    left: 50px;
+}
+
+.beau {
+  font-family: "Beau Rivage", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 60px;
+  color: #FFD428;
+
+}
+
+.mogra {
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* 100% da altura da tela */
+    margin: 0;
+    
+
+}
+
+/* O conteúdo principal ocupa o espaço restante */
+main {
+    flex: 1;
+
+}
+
+.form{
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #DCCFC2;
+}
+
+.form-group{
+    margin-bottom: 15px;
+
+}
+
+.form-group label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select{
+    border: 1px solid #ddd;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+
+}
+
+.form-group input:focus{
+    border-color: #7A552F;
+}
+
+.acoes{
+    display: flex inline;
+    
+}
+
+/*COMO FAZER CARDZINHOSSSS 💟📍 */
+
+.lista-cards{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+
+}
+
+.card-aluno{
+    background-color: #ffffff;
+    width: 200px;
+    border-radius: 16px;
+    box-shadow: 0 12px 6px #841912;
+    padding: 16px;
+    display: flex;
+    flex-direction: column; /*deixa um embaixo do outro*/
+    align-items: center;
+
+}
+
+.card-aluno > img{ /*sempre que formos fazer uma imagem e ela não vazar, devemos definir o tamanho para 100% no máximo*/
+    width: 100%; /*ou definimos um tamanho fixo*/
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover; /*ele mantem a proporção da imagem*/ 
+
+}
+
+/*ESTILIZAÇÃO DA BARRA DE PESQUISA 🔍*/
+.form-consulta > input, .form-consulta > select{
+flex: 1;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+font-size: 16px;
+}
+
+.form-consulta {
+    display: flex;
+    gap: 10px;
+}
+
+
+
+.acoes{
+    display: flex;
+    /* flex-direction: column;
+    justify-content: right;
+    margin-top: 15px;
+    margin-bottom: 15px; */
+    gap: 5px;
+    justify-content: center;
+}
+
+.btn {
+    background-color: #3B1505;
+    padding: 8px 12px;
+    margin-right: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+
+}
+
+.btn-principal {
+    background-color: #6B3E38;
+
+}
+
+.btn-delete {
+    background-color: #654320;
+    color: white;
+
+}
+
+.btn-edit{
+    background-color: #895129;
+    color: white;
+
+}
+
+.dados-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: #C39F91;
+
+}
+
+.dados-table>thead {
+    background-color: #3B1505;
+    color: #C39F91;
+}
+
+.dados-table>th, .dados-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.dados-table tr:nth-child(even) {
+    background-color: white;
+    background-color: #f2f2f2;
+}
+
+
+.dados-table>th, .dados-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.dados-table tr:nth-child(even) {
+    background-color: white;
+    background-color: #f2f2f2;
+}
+
+
+.btn-secundario {
+    background-color: #6B3E38;
+    color: white;
+}
+
+.lista-cards {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 70px;
+    /* height: 50px; */
+}
+/* 
+.card-produto {
+    width: 350px;
+    background-color: #a39273; /* cor do fundo do card */
+    /* padding: 20px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    color: white;    */
+             /* espaço entre imagem e infos */
+/* }
+
+.card-produto .imagem img {
+    width: 100%;
+    border-radius: 5px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px 0 5px;
+}
+
+.card-info {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.card-price {
+    font-size: 16px;
+    font-weight: bold;
+} */ */
+
+.lista-cards {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 10px; */
+}
+
+.card-produto {
+    width: 350px;
+    background-color: #a39273;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    
+}
+
+
+.imagem {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+     width: 100%;
+    height: 150px;   /* <-- FORÇA MESMA ALTURA PARA TODAS */
+    margin-bottom: 10px;
+}
+
+.imagem img {
+    width: 100%;
+    border-radius: 10px;
+    
+}
+
+.card-title {
+    display: flex;
+    font-size: 17px;
+    /* font-weight: semibold; */
+    /* margin-top: 10px; */
+    
+}
+
+.lado{
+    display: flex;
+    justify-content: space-between;
+}
+
+.preco {
+   /* text-align: center; */
+    margin-top: 10px;
+    margin-right: 25px;
+
+}
+
+.data {
+    text-align: center;
+    align-items: center;
+}
+
+strong {
+    color: #3B1505;
+}
+
+.card-title, .preco, .data {
+  color: #5A2C26;
+}
+
+video{
+     object-fit:fill; 
+}
+
+/* .paginacao{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    gap: 30px;
+    color: white;
+}
+
+.botaozinho{
+    padding: 9px;
+    background-color: #895129;
+    border-radius: 5px;
+} */
+
+.paginacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  gap: 30px;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+}
+
+.botaozinho {
+  padding: 10px 16px;
+  background-color: #8E5840;
+  color: #ffffff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.abas.active{
+    color: #4B2E2B;
+    background-color: #DCCFC2;
+    border: 1px solid #ddd;
+    border-bottom: 2px solid #DCCFC2;
+}
+
+
+/*ESTILIZAÇÃO DA BARRA DE PESQUISA 🔍*/
+.form-consulta > input, .form-consulta > select{
+flex: 1;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+font-size: 16px;
+}
+
+.form-consulta {
+    display: flex;
+    gap: 10px;
+}
+
+
+/* ESTILIZAÇÃO DO BUTTON SAIR */
+.button{
+  position:relative;
+  display:inline-block;
+  margin:8px; /* menor ainda */
+    margin-left: 20px; /* 👈 move para a direita */
+
+}
+
+.button a{
+  color:#F2E4D5;
+  font-family:Helvetica, sans-serif;
+  font-weight:bold;
+  font-size:18px; /* diminuído */
+  text-align:center;
+  text-decoration:none;
+
+  background-color:#6A4A2C;
+  display:block;
+  position:relative;
+  padding:8px 18px; /* bem menor */
+
+  text-shadow:0px 1px 0px #2E1B0F;
+
+  box-shadow:
+    inset 0 1px 0 #B68A5A,
+    0 4px 0 #3E2A1E; /* sombra menor */
+
+  border-radius:6px;
+}
+
+.button a:active{
+  top:4px; /* menor */
+  background-color:#5C3F25;
+  box-shadow:
+    inset 0 1px 0 #B68A5A,
+    inset 0 -3px 0 #3E2A1E;
+}
+
+.button:after{
+  content:"";
+  height:100%;
+  width:100%;
+  padding:2px;
+  position:absolute;
+  bottom:-7px; /* reduzido */
+  left:-2px;
+  z-index:-1;
+  background-color:#2B1A10;
+  border-radius:6px;
+}

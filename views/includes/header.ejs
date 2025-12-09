@@ -1,33 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área Administrativa - ACUMINARE- <%= titulo %></title>
+    <title>Área Administrativa - ACUMINARE- <%= titulo %>
+    </title>
     <link rel="stylesheet" href="/css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
 </head>
-<body>
-    <header>
-        <h1>ACUMINARE</h1>
-        <nav>
-            <a href="/admin/">Acuminare</a>
-            <a href="/categorias/listar">🎶 Categorias</a>
-            <a href="/produtos/listar">🛒 Produtos</a>
-            <a href="/usuarios/listar">👥 Usuários</a>
-            <a href="/movimentacoes/listar">🔁 Movimentações</a>
+
+<body class="bg-[#4B2E2B] w-full">
+        <div class="bg-[#A07E62] h-40 ">
+             <p class="button">
+                 <a class="button"  href="/">SAIR  </a>
+            </p>
+        </div>
+        <div class="bg-[#CACACA] relative h-10 z-10 ">
+            <div class="relative w-[217px] h-[202px] absolute z-10 -top-5 -translate-y-1/2 left-1/2 -translate-x-1/2">
+                <img src="https://chat.google.com/u/0/api/get_attachment_url?url_type=FIFE_URL&content_type=image%2Fpng&attachment_token=AOo0EEUr%2Bf9pQFv0QSwR4YDiBwPWK4DqdvnhrV%2Bglw5HCjOGXfOoo0QIY7q1aB%2B6NXaorUVW3DhXgep9HMNH0seYGnCdv3dVwRMcv53%2F7JY7aLqnvFkKQFmT2CVWze9yC%2FrL8uAFlnZMuLObfy%2Fmpd%2BHFo7rxnzU4JKNpE%2FQCy9DgrE9mdaJyaGQDv8c9JsTR8QiERIfeQnqdaOI2yMdjWp7JMMusSTjmnykqQNfqp7cB7q2vC2BwnhK2tqX0x0M97vvWbl3Vhuk9TWryScvcyKFuzhtXFCpiEXhZ3GY5rkDlqeEe4UeWD3YyzvRU3ubrn89vUFhYlNavO5JUhenCc3biSFPisArRyrqoPC3Sg2TXu5BVWXk%2BLwBn6VvWRgTRUbCwS15Pb98xiGonD3txzkPvPd%2BJErWU5dhg8YR5vlyyrB5yi0RZ1bdYRFflyoumc0rP2VHUn0yeiPxYDdTPwhB5hkYTdEAigduifj7nhrdnoDBkvOJd9gkBScYQ4q9twYmDf8UVlScT0t3tr4Dm9oDYpRGqkr75GLuTa3kYMm%2BPaOhnQB%2F2FX%2B8FXxj0D5EoD0plrcBy%2FELvel8tH6uPTP09DjlDJWkS0R%2Fxv91MyaB49yLd73%2BiogNvgj&allow_caching=true&sz=w1920-h922-rw "
+                    class="absolute inset-0 object-cover transition-opacity duration-300 opacity-100 hover:opacity-0 scale-120" />
+                <img src="https://chat.google.com/u/0/api/get_attachment_url?url_type=FIFE_URL&content_type=image%2Fpng&attachment_token=AOo0EEVf%2Fwu8CY%2BI36Z2IM4WR8U2vHO7zJWr4P7VWEIiaF%2FBeShSiX%2B%2F12ZqZkiO6V%2BpCmQD%2FnVs%2B2zB6CkgWoNAcsPc8JSPMKH3yC9ct4GfhRQNYsi3YAgGjRYstELtuHZahCFRATdjRHzOXVJ6nAXVgQakGvSA%2Fz98WrtN2NY6JT4Mxlzscfmo15v%2BPHGwe0xKOVuzjyju6L%2FAvpc4Tm1VcvtdGluBaHUjpe74OXh5wjZyaUfb99ZPW2lNaQLSWeDDdJjEMTejg9Wqh7tQjXox7ZEiFZ%2BqIdf1IH9ZOgEGoDuhentl2idbxblP9IUuZLWiS%2BEj51g4oK3%2FBN9I4pAcDh%2F7npe0oWPQtKvA%2FuVuM5Zcy7GUO7u8rcGzzqBwuwEx5X%2BtMCtoZ9ZCaNUOSfmA%2Bt9N6ntem4y6kVUXzYuzKskRqwCW4xza9c8jdPXebMtQwgUl%2FXD%2BmWhatA6BpvxyIllucqSwYgCe5oN1sO752byzO8ODMUsEQ2vbhZeOwVUYi8cZRNNHGXK7qSe6304vhIua%2BcXqFe7qwLf8R6B9XM0yM8wz1y5sC7FS3cDI5qi5jluDCo0XVPy8EVNEVNUodrmem7zmUjRkude%2Bkm7RgT5CBp704Eb0YIDy&allow_caching=true&sz=w1920-h922-rw"
+                    class="absolute inset-0 object-cover transition-opacity duration-300 opacity-0 hover:opacity-100 scale-120" />
+            </div>
+        </div>
+    <div class="bg-[#4B2E2B] p-10 mt-5">
+        <nav class="flex flex-wrap items-center gap-20 mt-17 justify-center">
+
+            <a href="/"
+                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg "><button>🏡
+                    Home</button></a>
+
+            <a href="/admin/"
+                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg"><button>⚙
+                    Administração</button></a>
+            <a href="/categorias/listar"
+                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg "><button>🎶
+                    Categorias</button></a>
+            <a href="/produtos/listar"
+                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg "><button>🛒
+                    Produtos</button></a>
+            <a href="/usuarios/listar"
+                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-2 py-3 rounded-lg "><button>👥
+                    Usuários</button></a>
+            <a href="/movimentacoes/listar"
+                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-2 py-3 rounded-lg ">🔁
+                Movimentações</a>
+            <a href="/mensagens/listar"
+                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg ">✅
+                Mensagens</a>
         </nav>
-    </header>                  
+       
 
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+    </header>

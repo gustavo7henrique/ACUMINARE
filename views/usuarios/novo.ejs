@@ -1,0 +1,29 @@
+<%- include('../includes/header.ejs', {titulo: 'Lista de Usuários' }) %>
+
+    <main>
+        <h2 class="text-3xl font-semibold bg-[#7A552F] text-[#DCCFC2] py-4 shadow text-center"
+            style="text-shadow: 2px 2px 3px #3B2A20;">Cadasto de novo Usuário</h2>
+        <form action="/usuarios/novo" method="POST" class="form">
+            <div class="form-group">
+                <label>Nome do Usuário</label>
+                <input type="text" name="nome_usuario" required>
+            </div>
+            <div class="form-group">
+                <label>Endereço de E-mail</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Endereço de Residência</label>
+                <input type="text" name="endereco" required>
+            </div>
+            <div class="form-group">
+                <label>Senha</label>
+                <input type="password" name="senha" required>
+            </div>
+
+            <button type="submit" class="btn btn-principal">Adicionar</button>
+            <a href="/usuarios/listar" class="btn btn-secundario">Cancelar</a>
+        </form>
+    </main>
+
+    <%- include('../includes/footer.ejs') %>

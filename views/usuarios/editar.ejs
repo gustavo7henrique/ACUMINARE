@@ -1,0 +1,29 @@
+<%- include('../includes/header.ejs', {titulo: 'Lista de Usuários' }) %>
+
+    <main>
+        <h2 class="text-3xl font-semibold bg-[#7A552F] text-[#DCCFC2] py-4 shadow text-center"
+    style="text-shadow: 2px 2px 3px #3B2A20;">Atualização de dados do Usuário</h2>
+
+        <form action="/usuarios/editar/<%= usuario.id_usuario %>" method="POST" class="form">
+            <div class="form-group">
+                <label>Nome do Usuário</label>
+                <input type="text" name="nome_usuario" value="<%= usuario.nome_usuario %>" required>
+            </div>
+            <div class="form-group">
+                <label>Endereço de E-mail</label>
+                <input type="text" name="email" value="<%= usuario.email %>" required>
+            </div>
+            <div class="form-group">
+                <label>Endereço</label>
+                <input type="text" name="endereco" value="<%= usuario.endereco %>" required>
+            </div>
+            <div class="form-group">
+                <label>Senha</label>
+                <input type="password" name="senha" value="<%= usuario.senha %>" required>
+            </div>
+            <button type="submit" class="btn btn-principal">Salvar</button>
+            <a href="/usuarios/listar" class="btn btn-secundario">Cancelar</a>
+        </form>
+    </main>
+
+    <%- include('../includes/footer.ejs') %>

@@ -9,7 +9,7 @@ rotas.get('/listar', async (req, res) => {
     const ordem = req.query.ordem || 'nome_categoria';
 
     const dados = await BD.query(`SELECT * FROM categorias 
-        WHERE categorias.ativo = true 
+        WHERE categorias.categoria_ativa = true 
         and nome_categoria
         ilike $1 
         order by ${ordem}`, [`%${busca}%`]);
@@ -25,7 +25,7 @@ rotas.get('/novo', async (req, res) => {
 
 rotas.post('/novo', async (req, res) => {
     //Obtendo os dados do formulário 
-    const nome_turma = req.body.nome_categoria;
+    const nome_categoria = req.body.nome_categoria;
 
     //Inserindo os dados recebidos no BD
     const sql = `INSERT INTO categorias (nome_categoria)
@@ -46,7 +46,7 @@ rotas.post('/excluir/:id', async (req, res) => {
     //const sql = 'DELETE FROM turmas WHERE id_turma = $1';
 
     // A melhor prática ´desativar o item e não excluir
-    const sql = 'UPDATE categorias SET ativo = false WHERE id_categoria = $1';
+    const sql = 'UPDATE categorias SET categoria_ativa = false WHERE id_categoria = $1';
     //Executando o comando no BD
     await BD.query(sql, [id]);
 
@@ -73,10 +73,10 @@ rotas.post('/editar/:id', async (req, res) => {
     const id = req.params.id;
 
     //Obtendo os dados do formulário 
-    const nome_turma = req.body.nome_categoria;
+    const nome_categoria = req.body.nome_categoria;
 
     //Inserindo os dados recebidos no BD
-    const sql = ` UPDATE categorias SET 
+    const sql = ` UPDATE categorias SET
                        nome_categoria = $1
                     WHERE id_categoria = $2`;
                     

@@ -1,0 +1,76 @@
+<%- include('../includes/header.ejs', {titulo: 'Lista de Mensagens' }) %>
+
+    <main>
+        <h2 class="text-3xl font-semibold bg-[#7A552F] text-[#DCCFC2] py-4 shadow text-center"
+            style="text-shadow: 2px 2px 3px #3B2A20;">Área de Mensagens Recebidas</h2>
+
+       
+        <!--Criando form de pesquisa e ordemnação-->
+        <form action="/mensagens/listar" method="GET" class="form form-consulta">
+            <input type="text" name="busca" placeholder="Buscar por Nome ou Email">
+            <select name="ordem">
+                <option value="nome">Ordenar por Nome</option>
+                <option value="e-mail">Ordenar por Email</option>
+            </select>
+            <button type="submit" class="btn btn-principal">Buscar</button>
+        </form>
+
+        <div class="flex justify-center">
+            <table class="dados-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Mensagem</th>
+                        <th>Data</th>
+                        <th>Ação</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let mensagem of dadosMensagens) { %>
+                        <tr>
+                
+                            <td>
+                                <%= mensagem.nome_usuario_contato %>
+                            </td>
+                            <td>
+                                <%= mensagem.email_contato%>
+                            </td>
+                            <td>
+                                <%= mensagem.mensagem %>
+                            </td>
+                            <td>
+                                <%= new Date(mensagem.data_mensagem).toLocaleDateString('pt-BR') %>
+                            </td>
+                            <td class="acoes">
+                                <form action="/mensagens/excluir/<%= mensagem.id_usuario_contato%>" method="post">
+                                    <button type="submit" class="btn btn-delete">Excluir</button>
+
+                                </form>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="paginacao">
+        <%if (pgAtual> 1) { %>
+            <a href="/mensagens/listar?pg=<%= pgAtual - 1%>" class="botaozinho">Anterior</a>
+            <% } %>
+
+                <span>Página <%= pgAtual %> de <%= totalPgs %> </span>
+
+                <%if (pgAtual < totalPgs) { %>
+                    <a href="/mensagens/listar?pg=<%= pgAtual + 1%>" class="botaozinho" >Próxima</a>
+                    <% } %>
+
+    </div>
+
+    </main>
+
+
+
+
+    <%- include('../includes/footer.ejs') %>

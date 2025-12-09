@@ -1,0 +1,80 @@
+<%- include('../includes/header.ejs', {titulo: 'Lista de Movimentações' }) %>
+
+    <main>
+        <h2 class="text-3xl font-semibold bg-[#7A552F] text-[#DCCFC2] py-4 shadow text-center"
+            style="text-shadow: 2px 2px 3px #3B2A20;">Área de Movimentações</h2>
+
+        <div class="flex justify-center mt-10">
+            <a href="/movimentacoes/novo" class="btn btn-principal">Adicionar Movimentação</a>
+
+        </div>
+
+        <!--Criando form de pesquisa e ordemnação-->
+        <form action="/movimentacoes/listar" method="GET" class="form form-consulta">
+            <input type="text" name="busca" placeholder="Buscar por Usuário ou Produto">
+            <select name="ordem">
+                <option value="nome_usuario">Ordenar por Usuário</option>
+                <option value="nome_produto">Ordenar por Produto</option>
+            </select>
+            <button type="submit" class="btn btn-principal">Buscar</button>
+        </form>
+
+        <div class="flex justify-center">
+            <table class="dados-table">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Quantidade</th>
+                        <th>Estoque Atual</th>
+                        <th>Data</th>
+                        <th>Usuário</th>
+                        <th>Produto</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let movimentacao of dadosMovimentacoes) { %>
+                        <tr>
+                            <td>
+                                <%= movimentacao.tipo_movimentacao %>
+                            </td>
+                            <td>
+                                <%= movimentacao.quantidade %>
+                            </td>
+                            <td>
+                                <%= movimentacao.novo_estoque %>
+                            </td>
+                            <td>
+                                <%=  new Date(movimentacao.data_movimentacao).toLocaleDateString('pt-BR') %>
+                            </td>
+                            <td>
+                                <%= movimentacao.nome_usuario %>
+                            </td>
+                            <td>
+                                <%= movimentacao.nome_produto %>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="paginacao">
+        <%if (pgAtual> 1) { %>
+            <a href="/movimentacoes/listar?pg=<%= pgAtual - 1%>" class="botaozinho">Anterior</a>
+            <% } %>
+
+                <span>Página <%= pgAtual %> de <%= totalPgs %> </span>
+
+                <%if (pgAtual < totalPgs) { %>
+                    <a href="/movimentacoes/listar?pg=<%= pgAtual + 1%>" class="botaozinho" >Próxima</a>
+                    <% } %>
+
+    </div>
+
+    </main>
+
+
+
+
+    <%- include('../includes/footer.ejs') %>

@@ -1,0 +1,84 @@
+<%- include('../includes/header.ejs', {titulo: 'Lista de Produtos' }) %>
+
+    <main>
+        <h2 class="text-3xl font-semibold bg-[#7A552F] text-[#DCCFC2] py-4 shadow text-center"
+            style="text-shadow: 2px 2px 3px #3B2A20;">Cadasto de novo Produto</h2>
+        <form action="/produtos/novo" method="POST" class="form">
+            <div class="form-group">
+                <label>Nome do Produto</label>
+                <input type="text" name="nome_produto" required>
+            </div>
+
+            <!-- <div class="form-group">
+                <label>Imagem do produto</label>
+                <input type="text" name="imagem" required>
+            </div> -->
+
+            <div class="form-group" style="display: flex; align-items: center; gap: 15px;">
+                <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                    <label for="imagem" >Imagem do Produto</label>
+                    <input type="text" name="imagem" id="imagem" required placeholder="Cole o link da imagem">
+                </div>
+
+                <!-- Pré-visualização -->
+                <img id="preview" src="" alt="Pré-visualização"
+                    style="width: 130px; height: 90px;">
+            </div>
+
+            <script>
+                const input = document.getElementById('imagem');
+                const preview = document.getElementById('preview');
+
+                input.addEventListener('input', () => {
+                    const url = input.value.trim();
+                    if (url) {
+                        preview.src = url;
+                        preview.style.display = 'block';
+                    } else {
+                        preview.src = '';
+                        preview.style.display = 'none';
+                    }
+                });
+            </script>
+
+            <div class="form-group">
+                <label>Marca do produto</label>
+                <input type="text" name="marca_produto" required>
+            </div>
+            <div class="form-group">
+                <label>Preço do produto</label>
+                <input type="text" name="preco_produto" required>
+            </div>
+            <div class="form-group">
+                <label>Estoque Atual</label>
+                <input type="text" name="estoque_atual" required>
+            </div>
+            <div class="form-group">
+                <label>Estoque Mínimo</label>
+                <input type="text" name="estoque_min" required>
+            </div>
+            <div class="form-group">
+                <label>Categoria</label>
+                <select name="id_categoria" required>
+                    <option value="">Selecione uma Categoria</option>
+                    <!--//-->
+                    <% for (let categoria of dadosCategorias) { %>
+                        <option value="<%= categoria.id_categoria %>">
+                            <%= categoria.nome_categoria %>
+
+                        </option>
+                        <% } %>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Data de Cadastro</label>
+                <!-- <input type="date" name="data_cadastro" required> -->
+                <input type="date" value="<%= new Date().toISOString().split('T')[0] %>" readonly>
+            </div>
+            <button type="submit" class="btn btn-principal">Adicionar</button>
+            <a href="/produtos/listar" class="btn btn-secundario">Cancelar</a>
+        </form>
+    </main>
+
+    <%- include('../includes/footer.ejs') %>

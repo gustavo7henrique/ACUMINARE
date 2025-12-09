@@ -1,54 +1,89 @@
 <%- include('../includes/header.ejs', {titulo: 'Lista de Produtos' }) %>
 
     <main>
-        <h2> Lista de Produtos</h2>
+        <h2 class="text-3xl font-semibold bg-[#7A552F] text-[#DCCFC2] py-4 shadow text-center"
+    style="text-shadow: 2px 2px 3px #3B2A20;"> Lista de Produtos</h2>
+    <div class="flex justify-center mt-10">
         <a href="/produtos/novo" class="btn btn-principal">Adicionar Produto</a>
-
+    </div>
+        
         <form action="/produtos/listar" method="GET" class="form form-consulta">
             <input type="text" name="busca" placeholder="Buscar por nome ou Categoria">
             <select name="ordem">
-                <option value="nome_produto">Ordenando por nome</option>
-                <option value="categoria desc">Ordenando por Categoria</option>
-                <option value="formacao">Ordenar por Formação</option>
+                <option value="nome_produto">Ordenando por Nome</option>
+                <option value="nome_categoria desc">Ordenando por Marca</option>
             </select>
             <button type="submit" class="btn btn-principal">Buscar</button>
         </form>
 
-        <table class="dados-table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Telefone</th>
-                    <th>Formações</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for (let professor of dadosProfessores){ %>
-                    <tr>
-                        <td>
-                            <%= professor.nome_professor%>
-                        </td>
-                        <td>
-                            <%= professor.telefone%>
-                        </td>
-                        <td>
-                            <%= professor.formacao%>
-                        </td>
-                        <td class="acoes">
-                            <a href="/professores/editar/<%= professor.id_professor %>" class="btn btn-edit">Editar</a>
-                            <form action="/professores/excluir/<%= professor.id_professor %>" method="post">
-                                <button type="submit" class="btn btn-delete">Excluir</button>
+        <!--Card de PRODUTOS-->
+        <section class="lista-cards">
+            <% for (let produto of dadosProdutos) { %>
+                <div class="card-produto">
+                    <div class="imagem">
+                        <img src="<%= produto.imagem %>" alt="foto-produto">
+                    </div>
+                    <div>
+                        <div class="lado">
+                            <p class="card-title"><strong>Nome: </strong>
+                                <%= produto.nome_produto %>
+                            </p>
+                            <p class="card-title"><strong>Marca: </strong>
+                                <%= produto.marca_produto %>
+                            </p>
+                        </div>
 
-                            </form>
+                        <div class="lado">
+                            <p class="card-title"><strong>Estq Atual: </strong>
+                                <%= produto.estoque_atual %>
+                            </p>
+                            <p class="card-title"><strong>Estq Mínimo: </strong>
+                                <%= produto.estoque_min %>
+                            </p>
+                        </div>
+
+                        <!-- <div class="lado"> -->
+
+                        <!-- </div>      -->
+                    </div>
 
 
-                        </td>
-                    </tr>
-                    <% } %>
-            </tbody>
-        </table>
+
+                    <div class="acoes">
+                        <p class="preco"><strong>Preço:</strong>R$<%= produto.preco_produto %>
+                        </p>
+
+                        <a href="/produtos/editar/<%= produto.id_produto %>" class="btn btn-edit">Editar</a>
+                        <!--EXCLUIR PRODUTO-->
+                        <form action="/produtos/excluir/<%= produto.id_produto %>" method="POST">
+                            <button type="submit" class="btn btn-delete">Excluir</button>
+                        </form>
+                    </div>
+
+                    <p class="data"><strong>Data Cadastro: </strong>
+                        <%= produto.data_cadastro.toLocaleDateString() %>
+                    </p>
+
+                </div>
+
+                <% } %>
+
+
+        </section>
     </main>
+
+    <div class="paginacao">
+        <%if (pgAtual> 1) { %>
+            <a href="/produtos/listar?pg=<%= pgAtual - 1%>" class="botaozinho">Anterior</a>
+            <% } %>
+
+                <span>Página <%= pgAtual %> de <%= totalPgs %> </span>
+
+                <%if (pgAtual < totalPgs) { %>
+                    <a href="/produtos/listar?pg=<%= pgAtual + 1%>" class="botaozinho" >Próxima</a>
+                    <% } %>
+
+    </div>
 
 
     <%- include('../includes/footer.ejs') %>

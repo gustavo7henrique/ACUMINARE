@@ -1,41 +1,287 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="./css/landingpage.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Mogra&family=Permanent+Marker&display=swap" rel="stylesheet">
-     <title>Aculminare</title>
-     <script>
-        tailwind.config = {
-            theme : {
-                extend : {
-                    fontFamily : {
-                        'Mogra' : ["Mogra", system-ui]
-                    }
-                }
-            }
-        }
-     </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Acuminare</title>
 </head>
-<body>
-    <div>
-        <div class="bg-[#86795B] p-10 "></div>
-        <div class="bg-[#CACACA] p-5">
-        <img src="https://chat.google.com/u/0/api/get_attachment_url?url_type=FIFE_URL&content_type=image%2Fpng&attachment_token=AOo0EEUr%2Bf9pQFv0QSwR4YDiBwPWK4DqdvnhrV%2Bglw5HCjOGXfOoo0QIY7q1aB%2B6NXaorUVW3DhXgep9HMNH0seYGnCdv3dVwRMcv53%2F7JY7aLqnvFkKQFmT2CVWze9yC%2FrL8uAFlnZMuLObfy%2Fmpd%2BHFo7rxnzU4JKNpE%2FQCy9DgrE9mdaJyaGQDv8c9JsTR8QiERIfeQnqdaOI2yMdjWp7JMMusSTjmnykqQNfqp7cB7q2vC2BwnhK2tqX0x0M97vvWbl3Vhuk9TWryScvcyKFuzhtXFCpiEXhZ3GY5rkDlqeEe4UeWD3YyzvRU3ubrn89vUFhYlNavO5JUhenCc3biSFPisArRyrqoPC3Sg2TXu5BVWXk%2BLwBn6VvWRgTRUbCwS15Pb98xiGonD3txzkPvPd%2BJErWU5dhg8YR5vlyyrB5yi0RZ1bdYRFflyoumc0rP2VHUn0yeiPxYDdTPwhB5hkYTdEAigduifj7nhrdnoDBkvOJd9gkBScYQ4q9twYmDf8UVlScT0t3tr4Dm9oDYpRGqkr75GLuTa3kYMm%2BPaOhnQB%2F2FX%2B8FXxj0D5EoD0plrcBy%2FELvel8tH6uPTP09DjlDJWkS0R%2Fxv91MyaB49yLd73%2BiogNvgj&allow_caching=true&sz=w1920-h922-rw" alt="logo">
-    </div> 
+<style>
+  .inline-neon {
+    color: #faf9bf;
+    text-shadow: 0 0 5px #faf9bf, 0 0 10px #faf9bf;
+  }
+
+  @keyframes neonBlink {
+    0% {
+      opacity: 1
+    }
+
+    50% {
+      opacity: 0.25
+    }
+
+    100% {
+      opacity: 1
+    }
+  }
+</style>
+
+<body class="bg-[#7A552F] text-white font-serif">
+
+  <!-- ÁREA DE NAVEGAÇÃO -->
+  <header class="bg-[#2A1B00] p-6 flex justify-between items-center shadow-lg">
+    <h1 class="text-3xl font-bold text-yellow-400">Acuminare</h1>
+    <nav class="hidden md:block space-x-6 text-lg">
+      <a href="/admin/login" class="hover:text-yellow-300">Login</a>
+      <a href="#produtos" class="hover:text-yellow-300">Instrumentos</a>
+      <a href="#sobre" class="hover:text-yellow-300">Sobre</a>
+      <a href="#servicos" class="hover:text-yellow-300">Serviços</a>
+      <a href="#contato" class="hover:text-yellow-300">Contato</a>
+    </nav>
+
+    <button id="open-menu-button" class="md:hidden text-yellow-400 focus:outline-none p-2">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+  </header>
+
+  <!-- ÁREA PRINCIAPAL - HEADER -->
+  <section class="text-center py-24 bg-[#4B2E2B] bg-gradient-to- from-gray-800 to-gray-700">
+    <!-- LOGOOOOOOO -->
+
+    <div class="relative w-[217px] h-[202px] absolute z-10 -mt-10 -translate-y-1/2 left-1/2 -translate-x-1/2"
+      href="/admin/login">
+      <img
+        src="https://chat.google.com/u/0/api/get_attachment_url?url_type=FIFE_URL&content_type=image%2Fpng&attachment_token=AOo0EEUr%2Bf9pQFv0QSwR4YDiBwPWK4DqdvnhrV%2Bglw5HCjOGXfOoo0QIY7q1aB%2B6NXaorUVW3DhXgep9HMNH0seYGnCdv3dVwRMcv53%2F7JY7aLqnvFkKQFmT2CVWze9yC%2FrL8uAFlnZMuLObfy%2Fmpd%2BHFo7rxnzU4JKNpE%2FQCy9DgrE9mdaJyaGQDv8c9JsTR8QiERIfeQnqdaOI2yMdjWp7JMMusSTjmnykqQNfqp7cB7q2vC2BwnhK2tqX0x0M97vvWbl3Vhuk9TWryScvcyKFuzhtXFCpiEXhZ3GY5rkDlqeEe4UeWD3YyzvRU3ubrn89vUFhYlNavO5JUhenCc3biSFPisArRyrqoPC3Sg2TXu5BVWXk%2BLwBn6VvWRgTRUbCwS15Pb98xiGonD3txzkPvPd%2BJErWU5dhg8YR5vlyyrB5yi0RZ1bdYRFflyoumc0rP2VHUn0yeiPxYDdTPwhB5hkYTdEAigduifj7nhrdnoDBkvOJd9gkBScYQ4q9twYmDf8UVlScT0t3tr4Dm9oDYpRGqkr75GLuTa3kYMm%2BPaOhnQB%2F2FX%2B8FXxj0D5EoD0plrcBy%2FELvel8tH6uPTP09DjlDJWkS0R%2Fxv91MyaB49yLd73%2BiogNvgj&allow_caching=true&sz=w1920-h922-rw "
+        class="absolute inset-0 object-cover transition-opacity duration-300 opacity-100 hover:opacity-0 scale-120" />
+      <img
+        src="https://chat.google.com/u/0/api/get_attachment_url?url_type=FIFE_URL&content_type=image%2Fpng&attachment_token=AOo0EEVf%2Fwu8CY%2BI36Z2IM4WR8U2vHO7zJWr4P7VWEIiaF%2FBeShSiX%2B%2F12ZqZkiO6V%2BpCmQD%2FnVs%2B2zB6CkgWoNAcsPc8JSPMKH3yC9ct4GfhRQNYsi3YAgGjRYstELtuHZahCFRATdjRHzOXVJ6nAXVgQakGvSA%2Fz98WrtN2NY6JT4Mxlzscfmo15v%2BPHGwe0xKOVuzjyju6L%2FAvpc4Tm1VcvtdGluBaHUjpe74OXh5wjZyaUfb99ZPW2lNaQLSWeDDdJjEMTejg9Wqh7tQjXox7ZEiFZ%2BqIdf1IH9ZOgEGoDuhentl2idbxblP9IUuZLWiS%2BEj51g4oK3%2FBN9I4pAcDh%2F7npe0oWPQtKvA%2FuVuM5Zcy7GUO7u8rcGzzqBwuwEx5X%2BtMCtoZ9ZCaNUOSfmA%2Bt9N6ntem4y6kVUXzYuzKskRqwCW4xza9c8jdPXebMtQwgUl%2FXD%2BmWhatA6BpvxyIllucqSwYgCe5oN1sO752byzO8ODMUsEQ2vbhZeOwVUYi8cZRNNHGXK7qSe6304vhIua%2BcXqFe7qwLf8R6B9XM0yM8wz1y5sC7FS3cDI5qi5jluDCo0XVPy8EVNEVNUodrmem7zmUjRkude%2Bkm7RgT5CBp704Eb0YIDy&allow_caching=true&sz=w1920-h922-rw"
+        class="absolute inset-0 object-cover transition-opacity duration-300 opacity-0 hover:opacity-100 scale-120" />
+    </div> </a>
+    <p class="text-4xl text-gray-300 mb-8 -mt-10 font-semibold italic">Navegue entre melodias e escolha a sua</p>
+    <a href="#produtos"
+      class="bg-yellow-400 text-black px-10 py-4 rounded-full text-lg font-semibold hover:bg-yellow-300 transition">
+      Explore os Instrumentos
+    </a>
+
+  </section>
+
+  <!-- PRODUTOS -->
+  <section id="produtos" class="py-16 px-6 max-w-7xl mx-auto">
+    <h3 class="text-3xl font-bold mb-10 text-center text-yellow-400">Produtos em Destaque</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-[#2A1B00] p-6 rounded-lg shadow-lg hover:scale-105 transition">
+        <img src="https://aprendacomotocar.com/wp-content/uploads/2020/07/como-voc%C3%AA-pode-tocar-violino.jpg"
+          alt="Violino" class="rounded mb-4">
+        <h4 class="text-2xl font-semibold text-yellow-300 mb-2">Cordas</h4>
+        <p class="text-gray-400 mb-4">Violino, viola, violoncelo e mais</p>
+        <a href="/instrumentos/cordas" class="text-yellow-400 hover:underline">Ver opções →</a>
+      </div>
+      <div class="bg-[#2A1B00] p-6 rounded-lg shadow-lg hover:scale-105 transition">
+        <img
+          src="https://i0.wp.com/www.sabra.org.br/site/wp-content/uploads/2021/05/trompete-conheca-esse-instrumento-que-faz-parte-da-historia-da-humanidade-20210203092956.jpg.jpg?fit=800%2C534&ssl=1"
+          alt="Trompete" class="rounded mb-4">
+        <h4 class="text-2xl font-semibold text-yellow-300 mb-2">Metais</h4>
+        <p class="text-gray-400 mb-4">Trompete, trombone e tuba</p>
+        <a href="/instrumentos/metais" class="text-yellow-400 hover:underline">Ver opções →</a>
+      </div>
+      <div class="bg-[#2A1B00] p-6 rounded-lg shadow-lg hover:scale-105 transition">
+        <img src="https://musicclan.com.br/wp-content/uploads/2017/11/tudo-que-vc-precisa-saber-1-1024x769.jpg"
+          alt="Guitarra" class="rounded mb-4">
+        <h4 class="text-2xl font-semibold text-yellow-300 mb-2">Percussão & Mais</h4>
+        <p class="text-gray-400 mb-4">Bateria, guitarra e violão</p>
+        <a href="/instrumentos/percussao" class="text-yellow-400 hover:underline">Ver opções →</a>
+      </div>
     </div>
-    <div class="esquerdo">
-        <div>
-            <a href="" class="botão"><button>Conheça nossos produtos</button></a> 
-            <a href="" class="botão"><button>Área Administrativa</button></a> 
-            <a href="" class="botão"><button>Login Cliente</button></a>
-            <a href="" class="botão"><button>Faça sua customização</button></a> 
-        </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="bg-[#4B2E2B] py-16 px-6">
+    <h3 class="text-3xl font-bold mb-10 text-center text-yellow-400">Nossos Serviços</h3>
+    <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto text-center">
+      <div class="bg-[#2A1B00] p-6 rounded-lg shadow-lg hover:scale-105 transition">
+        <div class="text-4xl mb-4">🛠️</div>
+        <h4 class="text-2xl font-semibold text-yellow-300 mb-2">Manutenção & Ajustes</h4>
+        <p class="text-gray-300 text-sm">Serviços especializados de reparo e regulagem para garantir a longevidade do
+          seu instrumento.</p>
+      </div>
+      <div class="bg-[#2A1B00] p-6 rounded-lg shadow-lg hover:scale-105 transition">
+        <div class="text-4xl mb-4">🎓</div>
+        <h4 class="text-2xl font-semibold text-yellow-300 mb-2">Consultoria Musical</h4>
+        <p class="text-gray-300 text-sm">Orientação personalizada para estudantes e profissionais na escolha do
+          instrumento ideal.</p>
+      </div>
+      <div class="bg-[#2A1B00] p-6 rounded-lg shadow-lg hover:scale-105 transition">
+        <div class="text-4xl mb-4">📦</div>
+        <h4 class="text-2xl font-semibold text-yellow-300 mb-2">Encomendas Especiais</h4>
+        <p class="text-gray-300 text-sm">Solicite instrumentos sob medida ou edições limitadas, com entrega segura e
+          garantida.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefícios -->
+  <section class=" bg-[#2A1B00] py-16 px-6 text-center">
+    <h3 class="text-3xl font-bold mb-8 text-yellow-400">Por que escolher Acuminare?</h3>
+    <div class="grid md:grid-cols-4 gap-6 text-gray-300">
+      <div>🟤 Qualidade Superior</div>
+      <div>🟤 Consultoria Especializada</div>
+      <div>🟤 Envio Seguro</div>
+      <div>🟤 Garantia Musical</div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section class="py-16 px-6 max-w-6xl mx-auto text-center">
+    <h3 class="  text-3xl font-bold mb-10 text-yellow-400">O que nossos clientes dizem</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-[#2A1B00] p-6 rounded-lg shadow-lg">
+        <p class="italic text-gray-300">"Comprei meu violoncelo aqui e nunca toquei tão bem. Atendimento impecável!"</p>
+        <span class="block mt-4 text-yellow-300 font-semibold">— Arthur, violoncelista</span>
+      </div>
+      <div class="bg-[#2A1B00] p-6 rounded-lg shadow-lg">
+        <p class="italic text-gray-300">"Instrumentos de altíssima qualidade, entrega rápida e segura."</p>
+        <span class="block mt-4 text-yellow-300 font-semibold">— Gustavo, trompetista</span>
+      </div>
+      <div class="bg-[#2A1B00] p-6 rounded-lg shadow-lg">
+        <p class="italic text-gray-300">"A consultoria me ajudou a escolher o teclado perfeito para meu estilo."</p>
+        <span class="block mt-4 text-yellow-300 font-semibold">— Rafaela, tecladista</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="bg-[#4B2E2B] py-16 px-6 text-center">
+    <h3 class=" text-3xl font-bold mb-6 text-yellow-400"><span class="inline-neon"> Assine nossa Newsletter <span></h3>
+    <p class="text-gray-300 mb-6">Receba novidades, lançamentos e ofertas exclusivas.</p>
+    <form class="flex justify-center gap-4 max-w-md mx-auto">
+      <input type="email" placeholder="Digite seu email"
+        class="px-4 py-2 rounded bg-[#2A1B00] text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 w-full">
+      <button class="bg-yellow-400 text-black px-6 py-2 rounded hover:bg-yellow-300 transition">Assinar</button>
+    </form>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="  bg-[#2A1B00] py-16 px-6">
+    <h3 class="text-3xl font-bold mb-10 text-center text-yellow-400">Entre em Contato</h3>
+    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
+
+      <!-- Informações -->
+      <div class="space-y-4 text-gray-300">
+        <p class="text-lg">📍 Endereço: Rua das Notas, 123 — Andradina/SP</p>
+        <p class="text-lg">📞 Telefone: (18) 99999-9999</p>
+        <p class="text-lg">✉️ Email: contato@acuminare.com</p>
+        <img src="https://img1.picmix.com/output/stamp/normal/7/2/9/9/979927_77601.gif"
+          class="w-30 h-30 justify-center items-center" />
+      </div>
+
+      <!-- FORMULÁRIO -->
+      <form action="/mensagens/listar" method="POST" class="bg-[#4B2E2B] p-6 rounded-lg shadow-lg space-y-4">
+        <input type="text" name="nome_usuario_contato" placeholder="Seu nome"
+          class="w-full px-4 py-2 rounded bg-[#2A1B00] text-[#FACC15] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+
+        <input type="email" name="email_contato" placeholder="Seu email"
+          class="w-full px-4 py-2 rounded bg-[#2A1B00] text-[#FACC15] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+
+        <textarea rows="4" name="mensagem" placeholder="Sua mensagem"
+          class="w-full px-4 py-2 rounded bg-[#2A1B00] text-[#FACC15] focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+
+        <button type="submit"
+          class="w-full bg-yellow-400 text-black px-6 py-2 rounded font-semibold hover:bg-yellow-300 transition"> Enviar
+          Mensagem
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class=" py-8 px-6 text-center text-sm text-white border-t border-gray-700 bg-[#4B2E2B]">
+    <div class="max-w-7xl mx-auto space-y-4">
+      <p>© 2025 Acuminare — Todos os direitos reservados.</p>
+      <div class="flex justify-center gap-6">
+        <a href="#" class="hover:text-yellow-400 transition">Termos de Uso</a>
+        <a href="#" class="hover:text-yellow-400 transition">Política de Privacidade</a>
+        <a href="#contato" class="hover:text-yellow-400 transition">Contato</a>
+      </div>
+      <div class="flex justify-center gap-4 mt-4 ">
+        <a href="#"
+          class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black hover:bg-yellow-300 transition">A</a>
+        <a href="#"
+          class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black hover:bg-yellow-300 transition">C</a>
+        <a href="#"
+          class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black hover:bg-yellow-300 transition">U</a>
+        <a href="#"
+          class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black hover:bg-yellow-300 transition">M</a>
+        <a href="#"
+          class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black hover:bg-yellow-300 transition">I</a>
+        <a href="#"
+          class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black hover:bg-yellow-300 transition">N</a>
+        <a href="#"
+          class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black hover:bg-yellow-300 transition">A</a>
+        <a href="#"
+          class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black hover:bg-yellow-300 transition">R</a>
+        <a href="#"
+          class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black hover:bg-yellow-300 transition">E</a>
+      </div>
+    </div>
+    <div class="flex justify-center gap-4 mt-4 ">
+      <a href="https://www.instagram.com/">
+        <img src="/img/icons8-instagram.svg" alt="Instagram"> </a>
+
+      <a href="https://web.whatsapp.com">
+        <img href="" src="/img/icons8-whatsapp.svg" alt="Whatsapp"> </a>
+
+      <a href="https://br.pinterest.com">
+        <img href="" src="/img/icons8-pinterest.svg" alt="Pinterest"> </a>
+    </div>
+  </footer>
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 z-50 w-64 bg-[#2A1B00] shadow-2xl 
+         transform translate-x-full transition-transform duration-300 ease-in-out 
+         md:hidden">
+
+    <div class="flex justify-end mb-8">
+      <button id="close-menu-button" class="text-yellow-400 focus:outline-none p-2">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
     </div>
 
+    <nav class="flex flex-col space-y-4 text-xl font-semibold">
+      <a href="/admin/login" class="text-yellow-400 hover:text-yellow-300 py-3 border-b border-gray-700">Login</a>
+      <a href="#produtos" class="text-yellow-400 hover:text-yellow-300 py-3 border-b border-gray-700">Instrumentos</a>
+      <a href="#sobre" class="text-yellow-400 hover:text-yellow-300 py-3 border-b border-gray-700">Sobre</a>
+      <a href="#servicos" class="text-yellow-400 hover:text-yellow-300 py-3 border-b border-gray-700">Serviços</a>
+      <a href="#contato" class="text-yellow-400 hover:text-yellow-300 py-3">Contato</a>
+    </nav>
+  </div>
+  </div>
+  <script>
+    // Seleciona os elementos pelo ID
+    const menuButton = document.getElementById('open-menu-button');
+    const closeButton = document.getElementById('close-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Função para abrir o menu: remove a classe 'translate-x-full'
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.remove('translate-x-full');
+    });
+
+    // Função para fechar o menu: adiciona a classe 'translate-x-full'
+    closeButton.addEventListener('click', () => {
+      mobileMenu.classList.add('translate-x-full');
+    });
+
+    // Opcional: Fechar ao clicar em um link
+    const navLinks = mobileMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+      });
+    });
+  </script>
+
 </body>
-</html>

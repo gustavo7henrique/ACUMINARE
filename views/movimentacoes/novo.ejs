@@ -1,0 +1,46 @@
+<%- include('../includes/header.ejs', {titulo: 'Cadastro de Movimentações'}) %>
+
+    <main>
+        <h2 class="text-3xl font-semibold bg-[#7A552F] text-[#DCCFC2] py-4 shadow text-center"
+    style="text-shadow: 2px 2px 3px #3B2A20;">Cadastro de nova Movimentação</h2>
+
+        <form action="/movimentacoes/novo" method="POST" class="form">
+            <div class="form-group">
+                <label>Produto:</label>
+                <select name="id_produto" required >
+                    <% for (let produto of dadosProdutos) { %>
+                    <option value="<%= produto.id_produto %>"><%= produto.nome_produto %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tipo:</label>
+                <select name="tipo_movimentacao" required >
+                    <option value="entrada" type="varchar">Entrada</option>
+                    <option value="saida" type="varchar">Saída</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Quantidade: (entrou/saiu)</label>
+                <input type="integer" name="quantidade" required>
+            </div>
+            <div class="form-group">
+                <label>Data:</label>
+                <!-- <input type="date" name="data_movimentacao" required> -->
+                <input type="date" value="<%= new Date().toISOString().split('T')[0] %>" readonly>
+            </div>
+            <div class="form-group">
+                <label>Usuario:</label>
+                <select name="id_usuario" required >
+
+                    <% for (let usuario of dadosUsuarios) { %>
+                    <option value="<%= usuario.id_usuario %>"><%= usuario.nome_usuario %></option>
+                    <% } %>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-principal">Adicionar</button>
+            <a href="/movimentacoes/listar" class="btn btn-secundario">Cancelar</a>
+        </form>
+    </main>
+
+<%- include('../includes/footer.ejs') %>
