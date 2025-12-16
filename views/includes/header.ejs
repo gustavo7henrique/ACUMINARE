@@ -14,9 +14,10 @@
 </head>
 
 <body class="bg-[#4B2E2B] w-full">
+    <header>
         <div class="bg-[#A07E62] h-40 ">
-             <p class="button">
-                 <a class="button"  href="/">SAIR  </a>
+            <p class="button">
+                <a class="button" href="/">SAIR </a>
             </p>
         </div>
         <div class="bg-[#CACACA] relative h-10 z-10 ">
@@ -27,33 +28,93 @@
                     class="absolute inset-0 object-cover transition-opacity duration-300 opacity-0 hover:opacity-100 scale-120" />
             </div>
         </div>
-    <div class="bg-[#4B2E2B] p-10 mt-5">
-        <nav class="flex flex-wrap items-center gap-20 mt-17 justify-center">
+        <div class="bg-[#4B2E2B] p-10 mt-5">
+            <nav class="flex flex-wrap items-center gap-20 mt-17 justify-center">
+                <a href="/"
+                    class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg "><button>🏡
+                        Home</button></a>
+                <a href="/admin/"
+                    class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg"><button>⚙
+                        Administração</button></a>
+                <a href="/categorias/listar"
+                    class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg "><button>🎶
+                        Categorias</button></a>
+                <a href="/produtos/listar"
+                    class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg "><button>🛒
+                        Produtos</button></a>
+                <a href="/usuarios/listar"
+                    class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-2 py-3 rounded-lg "><button>👥
+                        Usuários</button></a>
+                <a href="/movimentacoes/listar"
+                    class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-2 py-3 rounded-lg ">🔁
+                    Movimentações</a>
+                <a href="/mensagens/listar"
+                    class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg ">✅
+                    Mensagens</a>
+            </nav>
+        </div>
+        <button id="open-menu-button"
+            class="fixed top-4 right-4 z-50 md:hidden bg-[#2A1B00] p-3 rounded-lg text-yellow-400">
+            <div id="mobile-menu" class="fixed inset-y-0 right-0 z-50 w-64 bg-[#2A1B00] shadow-2xl 
+         transform translate-x-full transition-transform duration-300 ease-in-out 
+         md:hidden">
 
-            <a href="/"
-                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg "><button>🏡
-                    Home</button></a>
+                <div class="flex justify-end mb-8">
+                    <button id="close-menu-button" class="text-yellow-400 focus:outline-none p-2">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
 
-            <a href="/admin/"
-                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg"><button>⚙
-                    Administração</button></a>
-            <a href="/categorias/listar"
-                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg "><button>🎶
-                    Categorias</button></a>
-            <a href="/produtos/listar"
-                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg "><button>🛒
-                    Produtos</button></a>
-            <a href="/usuarios/listar"
-                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-2 py-3 rounded-lg "><button>👥
-                    Usuários</button></a>
-            <a href="/movimentacoes/listar"
-                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-2 py-3 rounded-lg ">🔁
-                Movimentações</a>
-            <a href="/mensagens/listar"
-                class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg ">✅
-                Mensagens</a>
-        </nav>
-       
+                <nav class="flex flex-wrap items-center gap-20 mt-17 justify-center">
+                    <a href="/"
+                        class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg "><button>🏡
+                            Home</button></a>
+                    <a href="/admin/"
+                        class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg"><button>⚙
+                            Administração</button></a>
+                    <a href="/categorias/listar"
+                        class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg "><button>🎶
+                            Categorias</button></a>
+                    <a href="/produtos/listar"
+                        class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg "><button>🛒
+                            Produtos</button></a>
+                    <a href="/usuarios/listar"
+                        class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-2 py-3 rounded-lg "><button>👥
+                            Usuários</button></a>
+                    <a href="/movimentacoes/listar"
+                        class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-2 py-3 rounded-lg ">🔁
+                        Movimentações</a>
+                    <a href="/mensagens/listar"
+                        class="bg-[#2A1B00] w-70 text-center hover:bg-[#C89F76] text-[#DCCFC2] hover:text-[#4B2E2B] font-[mogra] px-6 py-3 rounded-lg ">✅
+                        Mensagens</a>
+                </nav>
+            </div>
+        </button>
+        <script>
+            // Seleciona os elementos pelo ID
+            const menuButton = document.getElementById('open-menu-button');
+            const closeButton = document.getElementById('close-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-    </div>
+            // Função para abrir o menu: remove a classe 'translate-x-full'
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+
+            // Função para fechar o menu: adiciona a classe 'translate-x-full'
+            closeButton.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+
+            // Opcional: Fechar ao clicar em um link
+            const navLinks = mobileMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                });
+            });
+        </script>
     </header>

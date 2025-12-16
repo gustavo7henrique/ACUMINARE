@@ -7,7 +7,7 @@ rotas.get('/listar', async (req, res) => {
     const id = req.params.id
     //Armazenando o valor do campo de busca em uma variavel
     const busca = req.query.busca || '';
-    const ordem = req.query.ordem || 'id_movimentacao';
+    const ordem = req.query.ordem || 'id_movimentacao DESC';
 
     const pg = req.query.pg || 1; //Variavel que controlaa página atual
     const limite = 8; //quantidade de registros por pagina 
